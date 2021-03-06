@@ -134,7 +134,7 @@ func SetTitle()
 		call setline(1, "/*************************************************************************") 
 		call append(line("."), "	> File Name: ".expand("%")) 
 		call append(line(".")+1, "	> Author: Terry") 
-		call append(line(".")+2, "	> Mail:    ") 
+		call append(line(".")+2, "	> Mail: terry.liao@nokia-sbell.com") 
 		call append(line(".")+3, "	> Created Time: ".strftime("%c")) 
 		call append(line(".")+4, " ************************************************************************/") 
 		call append(line(".")+5, "")
@@ -366,8 +366,10 @@ let Tlist_Exist_OnlyWindow = 1  " 如果只有一个buffer，kill窗口也kill�
 "let Tlist_Show_One_File=1            "不同时显示多个文件的tag，只显示当前文件的
 "设置tags  
 set tags=tags;  
+set tags+=/usr/include/tags;
 set autochdir 
-
+"更改文件后，自动更新tags
+"au BufWritePost *.c,*.cpp,*.h silent! !ctags -R &
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "其他东东
